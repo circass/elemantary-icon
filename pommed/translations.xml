@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>pommed</Name>
+        <Summary xml:lang="tr">Apple MacBook (Pro) dizüstü kısayol tuş olayları işleticisi</Summary>
+        <Description xml:lang="tr">Pommed ,Apple MacBook Pro, MacBook ve PowerBook dizüstü bilgisayarda bulunan kısayol tuşları kolları ve LCD arka ışığı, ses düzeyi, klavye arka ayarlarını kullandırır ve uygun şekilde CD-ROM sürücüsünü çıkarır.</Description>
+    </Source>
+</PISI>

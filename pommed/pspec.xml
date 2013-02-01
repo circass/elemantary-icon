@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>pommed</Name>
+        <Homepage>http://alioth.debian.org/</Homepage>
+        <Packager>
+            <Name>Pardus ANKA Admins</Name>
+            <Email>pisiciftligi@pardus-linux.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Handles the hotkeys of Apple MacBook (Pro) laptops</Summary>
+        <Description>Pommed handles the hotkeys found on the Apple MacBook Pro, MacBook and PowerBook laptops and adjusts the LCD backlight, sound volume, keyboard backlight or ejects the CD-ROM drive accordingly</Description>
+        <Archive sha1sum="631ecf12548d147f05820adb69dbd1d4fc7bef7f" type="targz">http://alioth.debian.org/frs/download.php/3583/pommed-1.39.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>alsa-lib-devel</Dependency>
+            <Dependency>audiofile-devel</Dependency>
+            <Dependency>gtk2-devel</Dependency>
+            <Dependency>libconfuse-devel</Dependency>
+            <Dependency>libglade-devel</Dependency>
+            <Dependency>libsmbios-devel</Dependency>
+            <Dependency>pciutils-devel</Dependency>
+            <Dependency>libX11-devel</Dependency>
+            <Dependency>libXext-devel</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+            <Dependency>libXpm-devel</Dependency>
+            <Dependency>dbus-glib-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>pommed</Name>
+        <RuntimeDependencies>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>audiofile</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libconfuse</Dependency>
+            <Dependency>libglade</Dependency>
+            <Dependency>libsmbios</Dependency>
+            <Dependency>pciutils</Dependency>
+            <Dependency>libX11</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+            <Dependency>libXpm</Dependency>
+            <Dependency>dbus-glib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="config">/etc</Path>
+	    <Path fileType="man">/usr/share/man/man1</Path>
+            <Path fileType="data">/usr/share/pommed</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2013-02-01</Date>
+            <Version>1.39</Version>
+            <Comment>First release</Comment>
+            <Name>Erdinç Gültekin</Name>
+            <Email>erdincgultekin@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
