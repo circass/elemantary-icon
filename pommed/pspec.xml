@@ -46,10 +46,14 @@
             <Dependency>dbus-glib</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="executable">/usr/bin</Path>
             <Path fileType="config">/etc</Path>
 	    <Path fileType="man">/usr/share/man/man1</Path>
             <Path fileType="data">/usr/share/pommed</Path>
+            <Path fileType="data">/usr/share/gpomme</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
