@@ -36,7 +36,7 @@
         </BuildDependencies>
         <Patches>
             <!-- linux patches -->
-            <Patch level="1">patches/linux/patch-3.8-rc5.patch</Patch>
+            <Patch level="1">patches/linux/patch-3.8-rc6.patch</Patch>
 
             <!-- Mandriva patches -->
             <Patch level="1">patches/mandriva/acpi-processor-M720SR-limit-to-C2.patch</Patch>
