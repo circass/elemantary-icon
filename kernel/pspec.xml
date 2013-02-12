@@ -36,7 +36,7 @@
         </BuildDependencies>
         <Patches>
             <!-- linux patches -->
-            <Patch level="1">patches/linux/patch-3.8-rc6.patch</Patch>
+            <Patch level="1">patches/linux/patch-3.8-rc7.patch</Patch>
 
             <!-- Mandriva patches -->
             <Patch level="1">patches/mandriva/acpi-processor-M720SR-limit-to-C2.patch</Patch>
@@ -309,9 +309,9 @@
 
     <History>
         <Update release="4">
-            <Date>2013-01-30</Date>
+            <Date>2013-02-12</Date>
             <Version>3.8.0</Version>
-            <Comment>bump</Comment>
+            <Comment>bump to -rc7</Comment>
             <Type package="kernel">security</Type>
             <Requires>
                 <Action package="kernel">systemRestart</Action>
