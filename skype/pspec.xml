@@ -82,8 +82,8 @@
             <Dependency>libvorbis-32bit</Dependency>
             <Dependency>pulseaudio-libs-32bit</Dependency>
             <Dependency>openssl-32bit</Dependency>
-	    <Dependency>libqt-32bit</Dependency>
-            <Dependency>libqt-webkit-32bit</Dependency>
+	    <Dependency>qt-32bit</Dependency>
+            <Dependency>qt-webkit-32bit</Dependency>
 	    <Dependency>phonon-32bit</Dependency>
             <Dependency>dbus-32bit</Dependency>
             <Dependency>sqlite-32bit</Dependency>
