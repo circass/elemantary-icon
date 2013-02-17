@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/pardus/!svn/ver/580/playground/e.gultekin/network/chat/skype
+END
+translations.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/pardus/!svn/ver/578/playground/e.gultekin/network/chat/skype/translations.xml
+END
+actions.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/pardus/!svn/ver/578/playground/e.gultekin/network/chat/skype/actions.py
+END
+pspec.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/pardus/!svn/ver/580/playground/e.gultekin/network/chat/skype/pspec.xml
+END
