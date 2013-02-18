@@ -10,24 +10,17 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
-    
 
 def setup():
-    autotools.configure()
-
-
-    if get.buildTYPE() == "emul32":
-        options = " --libdir=/usr/lib32 \
-                    --prefix=/usr/lib32"
-        shelltools.export("CFLAGS", "%s -m32" % get.CFLAGS())
-        autotools.configure(options)
+    autotools.configure("--disable-static \
+                         --disable-rpath")
 
 def build():
-    #pisitools.dosed("Make.rules", "^CFLAGS\s:=.*")
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    if get.buildTYPE() == "emul32": return
 
     pisitools.dodoc("ChangeLog", "COPYING*", "README*", "TODO")
     pisitools.insinto("/%s/%s/" % (get.docDIR(), get.srcNAME()), "contrib")
