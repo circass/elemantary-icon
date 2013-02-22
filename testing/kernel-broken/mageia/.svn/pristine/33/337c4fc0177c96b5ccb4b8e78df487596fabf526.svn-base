@@ -1,0 +1,54 @@
+	      Building kernel packages from the svn checkout
+	      ==============================================
+
+1. For the impatient
+====================
+
+$ svn co svn+ssh://svn.mageia.org/svn/packages/cauldron/kernel/current
+$ cd current
+$ ./build_sources
+$ bm -l
+
+NOTE: this will build ALL the kernel packages.
+
+2. Detailed explanation
+=======================
+
+2.1 build_sources script
+------------------------
+
+Mageia kernel packages don't use the standard RPM's way of applying
+and managing patches.
+
+Instead, the build script expects a specific tarball to exist.
+
+That tarball contains the .config files, patches and other scripts used
+by the build process.
+
+The tarball is created by the build_sources script. You must run it
+before the actual kernel build.
+
+2.2 bm
+------
+
+The bm script is a front-end for the rpm program. bm makes life a lot
+easier. If you don't have it installed run:
+
+# urpmi bm
+
+To build all the kernel packages, you can run (in the checkout directory):
+
+$ bm -l
+
+But that will build all the kernel packages, for i586 for example,
+there're 20 of them.
+
+To disable the build of a specific package, you can use the --without
+flag, for example:
+
+$ bm -l --without server
+
+Won't build the laptop kernel package and its -devel version.
+
+Please, take a look at the spec in order to know what can be disabled and
+what can't.

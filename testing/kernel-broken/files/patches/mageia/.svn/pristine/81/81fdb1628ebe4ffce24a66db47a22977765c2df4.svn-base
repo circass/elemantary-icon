@@ -1,0 +1,28 @@
+		   Mageia kernel patch format
+                   ==========================
+
+1. Patch contents format
+========================
+
+The patch format used by Mandriva's kernel is fully desribed at:
+
+	http://www.zip.com.au/~akpm/linux/patches/stuff/tpp.txt
+
+In short, each patch must have the following information (in
+this exact order):
+
+	1. One line which describes the patch briefly (about 50 chars)
+	2. Changelog (what does the patch do? Why?)
+	3. Author's Signed-off-by line
+
+2. Patch file name
+==================
+
+The name of the patch file is also important, the rule is simple: just
+prepend the subsystem name. Examples: vfs- , mm- , video- etc...
+
+3. Examples
+===========
+
+The directory PATCHES/patches has a lot of good examples (and some bad
+ones as well).

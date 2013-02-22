@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Copy & Paste from the old 'make svntag' command.
+#
+# Luiz Fernando N. Capitulino
+# <lcapitulino@mandriva.com.br>
+
+SPEC=SPECS/kernel.spec
+SVN_URL=$(svn info | sed -n '/^URL[^:]*:  *\(.*\)/s//\1/p')
+SVN_BASE=$(dirname $SVN_URL)
+VERSION=$(rpm -q --qf '%{VERSION}\n' --specfile ${SPEC} | head -1)
+RELEASE=$(rpm -q --qf '%{RELEASE}\n' --specfile ${SPEC} | head -1)
+KVERREL=${VERSION}-${RELEASE}
+
+svn mkdir ${SVN_BASE}/releases/${VERSION} -m "created directory ${VERSION}"
+svn cp ${SVN_URL} ${SVN_BASE}/releases/${VERSION}/${RELEASE} -m "Tagged as ${KVERREL}"

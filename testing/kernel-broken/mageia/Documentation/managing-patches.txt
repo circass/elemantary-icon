@@ -1,0 +1,87 @@
+		  Managing Mageia kernel patches
+                  ==============================
+
+1. Introduction
+===============
+
+Mageia kernel package doesn't use the standard RPM way of managing
+patches, which would be to list the patches using the 'Patch' keyword
+and then apply them at '%prep' stage using '%patch' commands.
+
+Instead, we use a tool called quilt.
+
+The reason is that the ancients found that it's very easier and simpler
+to manage patches with quilt than to use RPM's standard way (which sucks,
+let's be honest here).
+
+This document doesn't explain how quilt work, if you don't know how to
+use it, please read:
+
+http://www.suse.de/~agruen/quilt.pdf
+
+2. Creating the kernel tree
+===========================
+
+In order to start working with the patches, you must create the
+kernel tree properly.
+
+You can use the create_quilt_tree script to do that, it's under the
+PATCHES/scripts/ directory. Suppose you're in the SOURCES directory,
+you do:
+
+$ ../PATCHES/scripts/create_quilt_tree -f linux-2.6.24.tar.bz2
+
+And it'll take care of creating the tree for you.
+
+3. Adding and removing patches
+==============================
+
+The nice about quilt is that: there isn't anything special about
+adding or removing patches from the tree.
+
+This section explains how it's done.
+
+3.1 Adding a new patch
+----------------------
+
+First off, you have to go to the right position in the stack where the
+new patch will be added. For example, I want to add a new sound patch and
+I want it on the top of the sound patches, so I do:
+
+$ quilt applied | egrep '^sound-'
+sound-alsa-1.0.16rc1.patch
+sound-sigmatel_audio_display_all_controls_when_subsystem_id_is_wrong.patch
+sound-sigmatel_audio_fix_macbook_v2.patch
+
+Ok. The top of the sound stack is sound-sigmatel_audio_fix_macbook_v2.patch,
+let's go there to apply the new patch on top of it:
+
+$ quilt pop sound-sigmatel_audio_fix_macbook_v2.patch
+
+Now, just import the new patch:
+
+$ quilt import /tmp/sound-fix-issues.patch
+$ quilt push -a
+
+Compile. Test. Etc. Don't forget to commit when you're done:
+
+$ cd ../../     < go to the checkout's top dir>
+$ svn st
+?      SOURCES/linux-2.6.24
+?      PATCHES/patches/sound-fix-issues.patch
+M      PATCHES/patches/series
+$ svn add PATCHES/patches/sound-fix-issues.patch
+A         PATCHES/patches/sound-fix-issues.patch
+$ vim SPECS/kernel.spec   < changelog info >
+$ svn commit
+
+3.2 Removing a patch
+--------------------
+
+The simplest way of removing a patch is straightforward. Suppose your
+tree is already created (step 2) and you're in it, just do:
+
+$ quilt delete < patch to remove >
+$ svn del patches/<patch to remove>
+
+Changelog. Commit. You're done.
